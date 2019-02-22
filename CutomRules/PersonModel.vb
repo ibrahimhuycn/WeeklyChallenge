@@ -70,12 +70,12 @@
     Private Sub CompareCompanyName(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel) Handles Me.ApplyRule
         Select Case True
             Case person.CompanyName.Contains(staticPerson.LastName)
+
                 If person.CompanyName.Contains(String.Format("IAm{0}{1}", staticPerson.FirstName, staticPerson.LastName)) Then
                     RaiseEvent ReturnMessage(Me, String.Format("{0}'s Company", staticPerson.FirstName))
                 Else
                     RaiseEvent ReturnMessage(Me, String.Format("A company owned by a {0}", staticPerson.LastName))
                 End If
-
 
         End Select
 
