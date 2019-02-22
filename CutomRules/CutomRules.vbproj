@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompanyModel.vb" />
     <Compile Include="CustomRulesUI.vb">
       <SubType>Form</SubType>
     </Compile>

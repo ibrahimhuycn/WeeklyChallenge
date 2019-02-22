@@ -1,5 +1,5 @@
 ﻿Public Class PersonModel
-
+    Inherits CompanyModel
     Public Event ApplyRule(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel)
     Public Event ReturnMessage(ByVal sender As Object, ByVal message As String)
     Private _firstName As String
@@ -10,7 +10,7 @@
             Return _firstName
         End Get
         Set
-            _firstName = Value.ToUpper.Trim()
+            _firstName = Value.Trim()
         End Set
     End Property
 
@@ -19,7 +19,7 @@
             Return _lastName
         End Get
         Set
-            _lastName = Value.ToUpper.Trim()
+            _lastName = Value.Trim()
         End Set
     End Property
 
@@ -67,4 +67,19 @@
     Private Sub PartialPostalCodeMatch(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel) Handles Me.ApplyRule
         If person.PostalCode.Substring(0, 2) = staticPerson.PostalCode.Substring(0, 2) Then RaiseEvent ReturnMessage(Me, String.Format("In the same general area as {0}.", staticPerson.FirstName))
     End Sub
+    Private Sub CompareCompanyName(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel) Handles Me.ApplyRule
+        Select Case True
+            Case person.CompanyName.Contains(staticPerson.LastName)
+                If person.CompanyName.Contains(String.Format("IAm{0}{1}", staticPerson.FirstName, staticPerson.LastName)) Then
+                    RaiseEvent ReturnMessage(Me, String.Format("{0}'s Company", staticPerson.FirstName))
+                Else
+                    RaiseEvent ReturnMessage(Me, String.Format("A company owned by a {0}", staticPerson.LastName))
+                End If
+
+
+        End Select
+
+        If person.CompanyPostalCode.StartsWith("08") Then RaiseEvent ReturnMessage(Me, "A Company in New Jersey")
+    End Sub
+
 End Class

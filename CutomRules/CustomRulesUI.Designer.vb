@@ -31,6 +31,10 @@ Partial Class CustomRulesUI
         Me.TextBoxDisplayMessage = New System.Windows.Forms.TextBox()
         Me.GroupBoxDisplayMessage = New System.Windows.Forms.GroupBox()
         Me.ButtonCheckRules = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelCompanyName = New System.Windows.Forms.Label()
+        Me.TextBoxCompanyPostalCode = New System.Windows.Forms.TextBox()
+        Me.TextBoxCompanyName = New System.Windows.Forms.TextBox()
         Me.GroupBoxDisplayMessage.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -88,15 +92,18 @@ Partial Class CustomRulesUI
         Me.TextBoxDisplayMessage.Location = New System.Drawing.Point(3, 16)
         Me.TextBoxDisplayMessage.Multiline = True
         Me.TextBoxDisplayMessage.Name = "TextBoxDisplayMessage"
-        Me.TextBoxDisplayMessage.Size = New System.Drawing.Size(449, 112)
+        Me.TextBoxDisplayMessage.Size = New System.Drawing.Size(505, 112)
         Me.TextBoxDisplayMessage.TabIndex = 6
+        Me.TextBoxDisplayMessage.TabStop = False
         '
         'GroupBoxDisplayMessage
         '
+        Me.GroupBoxDisplayMessage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxDisplayMessage.Controls.Add(Me.TextBoxDisplayMessage)
-        Me.GroupBoxDisplayMessage.Location = New System.Drawing.Point(9, 61)
+        Me.GroupBoxDisplayMessage.Location = New System.Drawing.Point(12, 115)
         Me.GroupBoxDisplayMessage.Name = "GroupBoxDisplayMessage"
-        Me.GroupBoxDisplayMessage.Size = New System.Drawing.Size(455, 131)
+        Me.GroupBoxDisplayMessage.Size = New System.Drawing.Size(511, 131)
         Me.GroupBoxDisplayMessage.TabIndex = 7
         Me.GroupBoxDisplayMessage.TabStop = False
         Me.GroupBoxDisplayMessage.Text = "Display Message"
@@ -110,11 +117,47 @@ Partial Class CustomRulesUI
         Me.ButtonCheckRules.Text = "Check Rules"
         Me.ButtonCheckRules.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(115, 55)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(64, 13)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Postal Code"
+        '
+        'LabelCompanyName
+        '
+        Me.LabelCompanyName.AutoSize = True
+        Me.LabelCompanyName.Location = New System.Drawing.Point(12, 55)
+        Me.LabelCompanyName.Name = "LabelCompanyName"
+        Me.LabelCompanyName.Size = New System.Drawing.Size(82, 13)
+        Me.LabelCompanyName.TabIndex = 11
+        Me.LabelCompanyName.Text = "Company Name"
+        '
+        'TextBoxCompanyPostalCode
+        '
+        Me.TextBoxCompanyPostalCode.Location = New System.Drawing.Point(118, 71)
+        Me.TextBoxCompanyPostalCode.Name = "TextBoxCompanyPostalCode"
+        Me.TextBoxCompanyPostalCode.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxCompanyPostalCode.TabIndex = 5
+        '
+        'TextBoxCompanyName
+        '
+        Me.TextBoxCompanyName.Location = New System.Drawing.Point(12, 71)
+        Me.TextBoxCompanyName.Name = "TextBoxCompanyName"
+        Me.TextBoxCompanyName.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxCompanyName.TabIndex = 4
+        '
         'CustomRulesUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(471, 199)
+        Me.ClientSize = New System.Drawing.Size(535, 258)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LabelCompanyName)
+        Me.Controls.Add(Me.TextBoxCompanyPostalCode)
+        Me.Controls.Add(Me.TextBoxCompanyName)
         Me.Controls.Add(Me.ButtonCheckRules)
         Me.Controls.Add(Me.GroupBoxDisplayMessage)
         Me.Controls.Add(Me.LabelLastName)
@@ -141,4 +184,8 @@ Partial Class CustomRulesUI
     Friend WithEvents TextBoxDisplayMessage As TextBox
     Friend WithEvents GroupBoxDisplayMessage As GroupBox
     Friend WithEvents ButtonCheckRules As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelCompanyName As Label
+    Friend WithEvents TextBoxCompanyPostalCode As TextBox
+    Friend WithEvents TextBoxCompanyName As TextBox
 End Class

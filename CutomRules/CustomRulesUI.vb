@@ -5,7 +5,9 @@
         _person = New PersonModel
         _person.ApplyRules(Me, New PersonModel With {.FirstName = TextBoxFirstName.Text,
                           .LastName = TextBoxLastName.Text,
-                          .PostalCode = TextBoxPostalCode.Text})
+                          .PostalCode = TextBoxPostalCode.Text,
+                          .CompanyName = TextBoxCompanyName.Text,
+                          .CompanyPostalCode = TextBoxCompanyPostalCode.Text})
     End Sub
 
     Private Sub DisplayMessage(ByVal sender As Object, ByVal message As String) Handles _person.ReturnMessage
