@@ -46,14 +46,14 @@ Partial Class CustomRulesUI
         Me.TextBoxPostalCode.Location = New System.Drawing.Point(224, 26)
         Me.TextBoxPostalCode.Name = "TextBoxPostalCode"
         Me.TextBoxPostalCode.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxPostalCode.TabIndex = 1
+        Me.TextBoxPostalCode.TabIndex = 2
         '
         'TextBoxLastName
         '
         Me.TextBoxLastName.Location = New System.Drawing.Point(118, 26)
         Me.TextBoxLastName.Name = "TextBoxLastName"
         Me.TextBoxLastName.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxLastName.TabIndex = 2
+        Me.TextBoxLastName.TabIndex = 1
         '
         'LabelFirstName
         '

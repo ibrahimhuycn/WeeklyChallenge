@@ -1,6 +1,7 @@
 ﻿Public Class PersonModel
 
     Public Event ApplyRule(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel)
+    Public Event ReturnMessage(ByVal sender As Object, ByVal message As String)
     Private _firstName As String
     Private _lastName As String
 
@@ -54,16 +55,16 @@
     End Sub
 
     Private Sub MatchFirstName(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel) Handles Me.ApplyRule
-        If person.LastName = staticPerson.LastName Then MsgBox(String.Format("Possibly related to {0} {1}.", staticPerson.FirstName, staticPerson.LastName))
+        If person.LastName = staticPerson.LastName Then RaiseEvent ReturnMessage(Me, String.Format("Possibly related to {0} {1}.", staticPerson.FirstName, staticPerson.LastName))
     End Sub
     Private Sub InitialsMatch(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel) Handles Me.ApplyRule
         If (person.FirstName.Substring(0, 1) = staticPerson.FirstName.Substring(0, 1) And
             person.LastName.Substring(0, 1) = staticPerson.LastName.Substring(0, 1)) Then
 
-            MsgBox(String.Format("Same initials as {0} {1}.", staticPerson.FirstName, staticPerson.LastName))
+            RaiseEvent ReturnMessage(Me, String.Format("Same initials as {0} {1}.", staticPerson.FirstName, staticPerson.LastName))
         End If
     End Sub
     Private Sub PartialPostalCodeMatch(ByVal sender As Object, ByVal person As PersonModel, ByVal staticPerson As PersonModel) Handles Me.ApplyRule
-        If person.PostalCode.Substring(0, 2) = staticPerson.PostalCode.Substring(0, 2) Then MsgBox(String.Format("In the same general area as {0}.", staticPerson.FirstName))
+        If person.PostalCode.Substring(0, 2) = staticPerson.PostalCode.Substring(0, 2) Then RaiseEvent ReturnMessage(Me, String.Format("In the same general area as {0}.", staticPerson.FirstName))
     End Sub
 End Class
